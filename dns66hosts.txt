@@ -1,3 +1,3 @@
 0.0.0.0  click.speee-ad.jp
 0.0.0.0  dsp.logly.co.jp
-
+0.0.0.0  www.googleadservices.com
