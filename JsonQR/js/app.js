@@ -1,10 +1,10 @@
 window.JsonQR = window.JsonQR || {}
 
 JsonQR.reader = (() => {
-    // if (!navigator.mediaDevices) {
-    //     showUnsuportedScreen()
-    //     return
-    // }
+    if (!navigator.mediaDevices) {
+        showUnsuportedScreen()
+        return
+    }
 
     const video = document.querySelector('#js-video')
 
