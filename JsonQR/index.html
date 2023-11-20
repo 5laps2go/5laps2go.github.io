@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>配送状況連絡</title>
-        <link rel="stylesheet" href="./css/app.css" />
-        <link rel="manifest" href="./manifest.json" />
-        <link rel="manifest" href="manifest.webmanifest" />
-        <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
-        <link rel="icon" type="image/png" href="images/icons/icon-128x128.png" sizes="128x128" />
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('./sw.js')
+
+<head>
+    <style>
+        link[rel="manifest"] {
+            --pwacompat-splash-font: bold 24px Cursive;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>配送状況連絡</title>
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="images/icons/icon-128x128.png" sizes="128x128" />
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
                 .then(function (registration) {
                     console.log("sw registed.");
                 }).catch(function (error) {
-                  console.warn("sw error.", error);
-                });                
-            }
-        </script>
-    </head>
-    <body>
-        <div class="reader">
-            <video
-                id="js-video"
-                class="reader-video"
-                autoplay
-                playsinline
-            ></video>
-        </div>
+                    console.warn("sw error.", error);
+                });
+        }
+    </script>
+</head>
 
-        <div class="reticle">
-            <div class="reticle-box"></div>
-        </div>
+<body>
+    <div class="reader">
+        <video id="js-video" class="reader-video" autoplay playsinline></video>
+    </div>
 
-        <div style="display: none">
-            <canvas id="js-canvas"></canvas>
-        </div>
+    <div class="reticle">
+        <div class="reticle-box"></div>
+    </div>
 
-        <div id="js-modal" class="modal-overlay">
-            <div class="modal">
-                <div class="modal-cnt">
-                    <span class="modal-title">読み取り結果</span>
-                    <textarea
-                        id="js-result"
-                        class="modal-result"
-                        value=""
-                        readonly
-                    /></textarea>
-                </div>
-                <a href="" id="js-link" class="modal-btn" target="_blank">
-                    送信
-                </a>
-                <button type="button" id="js-modal-close" class="modal-btn">
-                    取り消し
-                </button>
+    <div style="display: none">
+        <canvas id="js-canvas"></canvas>
+    </div>
+
+    <div id="js-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-cnt">
+                <span class="modal-title">読み取り結果</span>
+                <textarea id="js-result" class="modal-result" value="" readonly /></textarea>
             </div>
+            <a href="" id="js-link" class="modal-btn" target="_blank">
+                送信
+            </a>
+            <button type="button" id="js-modal-close" class="modal-btn">
+                取り消し
+            </button>
         </div>
+    </div>
 
-        <div id="js-unsupported" class="unsupported">
-            <p class="unsupported-title">Sorry!</p>
-            <p>Unsupported browser</p>
-        </div>
+    <div id="js-unsupported" class="unsupported">
+        <p class="unsupported-title">Sorry!</p>
+        <p>Unsupported browser</p>
+    </div>
 
-        <script src="./js/jsQR.js"></script>
-        <script src="./js/app.js"></script>
-    </body>
+    <script src="./js/jsQR.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
 </html>
